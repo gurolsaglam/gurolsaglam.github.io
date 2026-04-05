@@ -1,23 +1,46 @@
-
 //
 // VARIABLES
 //
 
+// Font stacks
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia: Georgia, serif;
+
 // Colors
-$blue: #4183C4;
+$blue: #4183c4;
+$salvation: #50505b;
+$blackmarlin: #383840;
+$bastille: #2c2c32;
+$aswadblack: #18181b;
+$bauhaus: #404040;
 
 // Grays
 $black: #000;
 $darkerGray: #222;
 $darkGray: #333;
 $gray: #666;
+$cerebralgray: #ccc;
 $lightGray: #eee;
 $white: #fff;
 
-// Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+// Colors for specific blocks
+$primary-color: $salvation !default; /*TODO: eliminate this*/
+$masthead-link-color: $salvation !default;
+$masthead-link-color-hover: $blackmarlin !default;
+$navicon-link-color-hover: $aswadblack !default;
+$main-text-color: $bauhaus !default;
+$lighter-gray: mix(#fff, $gray, 90%) !default;
+$link-color-hover: mix(#000, mix(#000, #3b9cba, 20%), 25%) !default;
+
+//Visuals
+$global-transition: all 0.2s ease-in-out !default;
+$nav-height: 2em !default;
+$nav-toggle-height: 2rem !default;
+$border-radius: 4px !default;
+$box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125) !default;
+$type-size-5: 1em !default; // ~16px
+$type-size-6: 0.75em !default; // ~12px
 
 // Mobile breakpoints
 @mixin mobile {
@@ -25,3 +48,6 @@ $georgia: Georgia, serif;
     @content;
   }
 }
+
+
+
