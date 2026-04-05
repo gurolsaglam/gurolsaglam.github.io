@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Introducing Reverie - A ridiculously elegant Jekyll theme
+permalink: /materials/:title/
 categories: [Miscellaneous, Jekyll]
 ---
 
