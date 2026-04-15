@@ -41,6 +41,7 @@ $border-radius: 4px !default;
 $box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125) !default;
 $type-size-5: 1em !default; // ~16px
 $type-size-6: 0.75em !default; // ~12px
+$page-max-width: 1280px; /*740px;*/
 
 // Mobile breakpoints
 @mixin mobile {
@@ -49,5 +50,38 @@ $type-size-6: 0.75em !default; // ~12px
   }
 }
 
+// Smaller screen breakpoints
+@mixin masthead_some_icons {
+  @media screen and (max-width: 836.39px) {
+    @content;
+  }
+}
+
+// Smaller screen breakpoints
+@mixin masthead_only_icons {
+  @media screen and (max-width: 605.25px) {
+    @content;
+  }
+}
+
+// Smaller screen breakpoints
+@mixin masthead_less_margin {
+  @media screen and (max-width: 407.25px) {
+    @content;
+  }
+}
 
 
+// Smallest screen breakpoints
+@mixin masthead_wrapped {
+  @media screen and (max-width: 324.16px) {
+    @content;
+  }
+}
+
+// Masthead dropdown alignment breakpoint
+@mixin masthead_dropdown_align_left {
+  @media screen and (max-width: 378.85px) {
+    @content;
+  }
+}

@@ -74,13 +74,9 @@
 
 .container {
   margin: 0 auto;
-  max-width: 1280px; /*740px;*/
+  max-width: $page-max-width;
   padding: 0 10px;
   width: 100%;
-
-  .site-nav {
-    margin-left: 0;
-  }
 
   ul {
     margin: 0;
@@ -310,7 +306,7 @@ Modules - reusable parts of our design
 
 #gh-latest{
     font-size: 16px;
-    text-align: center;		
+    text-align: center;
 }
 
 .text-link {
@@ -835,62 +831,126 @@ Modules - reusable parts of our design
   }
 }
 
-//hide text in masthead (except dropdown) if smaller screen, 835px for current masthead
-@media (max-width: 835px) {
-    .greedy-nav .masthead__menu-item a {
-        display: flex; /* Align icon and text */
-        align-items: center; /* Center items vertically */
-    }
+//hide text in masthead (except dropdown) if smaller screen
+@include masthead_some_icons {
+  .greedy-nav .visible-links .masthead-item .masthead-item-link {
+    display: flex; /* Align icon and text */
+  }
 
-    .greedy-nav .masthead__menu-item a i {
-        display: inline; /* Show the icon */
-    }
+  .greedy-nav .visible-links .masthead-item .masthead-item-link i {
+    display: inline; /* Show the icon */
+    margin-left: 6px; /* space before icon */
+  }
 
-    .greedy-nav .masthead__menu-item a span {
-        display: none; /* Hide the text */
-    }
-	
-    .greedy-nav .dropdown a {
-        display: flex; /* Align icon and text */
-        align-items: center; /* Center items vertically */
-    }
+  .greedy-nav .visible-links .masthead-item .masthead-item-link span {
+    display: none; /* Hide the text */
+  }
+    
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle {
+    display: flex; /* Align icon and text */
+  }
 
-    .greedy-nav .dropdown a i {
-        display: inline; /* Show the icon */
-    }
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle i {
+    display: inline; /* Show the icon */
+  }
 
-    .greedy-nav .dropdown a span {
-        display: inline; /* Hide the text */
-    }
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle span {
+    display: inline; /* Hide the text */
+  }
 }
 
-//hide text in masthead if smaller screen, 522px for current masthead
-@media (max-width: 522px) {
-    .greedy-nav .masthead__menu-item a {
-        display: flex; /* Align icon and text */
-        align-items: center; /* Center items vertically */
-    }
+//hide text in masthead if smaller screen
+@include masthead_only_icons {
+  .greedy-nav .visible-links .masthead-item .masthead-item-link {
+    display: flex; /* Align icon and text */
+  }
 
-    .greedy-nav .masthead__menu-item a i {
-        display: inline; /* Show the icon */
-    }
+  .greedy-nav .visible-links .masthead-item .masthead-item-link i {
+    display: inline; /* Show the icon */
+    margin-left: 6px; /* space before icon */
+  }
 
-    .greedy-nav .masthead__menu-item a span {
-        display: none; /* Hide the text */
-    }
-	
-    .greedy-nav .dropdown a {
-        display: flex; /* Align icon and text */
-        align-items: center; /* Center items vertically */
-    }
+  .greedy-nav .visible-links .masthead-item .masthead-item-link span {
+    display: none; /* Hide the text */
+  }
+    
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle {
+    display: flex; /* Align icon and text */
+  }
 
-    .greedy-nav .dropdown a i {
-        display: inline; /* Show the icon */
-    }
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle i {
+    display: inline; /* Show the icon */
+    margin-left: 6px; /* space before icon */
+  }
 
-    .greedy-nav .dropdown a span {
-        display: none; /* Hide the text */
-    }
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle span {
+    display: none; /* Hide the text */
+  }
+  
+  .greedy-nav .visible-links .masthead-dropdown-content {
+    min-width: max-content; /* to fix the text */
+  }
 }
 
+//hide text in masthead if smaller screen, and less margins
+@include masthead_less_margin {
+  .greedy-nav .visible-links .masthead-item .masthead-item-link {
+    display: flex; /* Align icon and text */
+    margin: 0 0.5rem;
+  }
 
+  .greedy-nav .visible-links .masthead-item .masthead-item-link i {
+    display: inline; /* Show the icon */
+    margin-left: 6px; /* space before icon */
+  }
+
+  .greedy-nav .visible-links .masthead-item .masthead-item-link span {
+    display: none; /* Hide the text */
+  }
+    
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle {
+    display: flex; /* Align icon and text */
+    margin: 0 0.5rem;
+  }
+
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle i {
+    display: inline; /* Show the icon */
+    margin-left: 6px; /* space before icon */
+  }
+
+  .greedy-nav .visible-links .masthead-dropdown .masthead-dropdown-toggle span {
+    display: none; /* Hide the text */
+  }
+  
+  .greedy-nav .visible-links .masthead-dropdown-content {
+    min-width: max-content; /* to fix the text */
+    right: 8px;
+  }
+}
+
+//wrap masthead in the case of the smallest screens
+@include masthead_wrapped {
+  .greedy-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .greedy-nav .visible-links {
+    width: 100%;
+    justify-content: space-around;
+    display: contents;
+  }
+  
+  .greedy-nav li {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+//wrap masthead in the case of the smallest screens
+@include masthead_dropdown_align_left {
+  .greedy-nav .visible-links .masthead-dropdown-content {
+    left: 8px;
+    right: 0px;
+  }
+}
