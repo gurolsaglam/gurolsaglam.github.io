@@ -78,9 +78,7 @@
 
   ul {
     margin: 0;
-    padding: 0;
     clear: both;
-    list-style-type: none;
   }
 }
 
@@ -156,6 +154,13 @@ body:after {
   font-kerning: auto;
   font-feature-settings: "kern","liga","dlig","hlig","cswh";
   line-height: 1.2;
+}
+
+.page .entry .time_period {
+  /*position: absolute;
+  right: 0;
+  padding: 0 10px;*/
+  float: right;
 }
 
 .author_title{
@@ -947,7 +952,7 @@ Modules - reusable parts of our design
   }
 }
 
-//wrap masthead in the case of the smallest screens
+//align masthead dropdown content to fit in the screen
 @include masthead_dropdown_align_left {
   .greedy-nav .visible-links .masthead-dropdown-content {
     left: 8px;
